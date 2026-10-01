@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Service status</title>
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+        <link rel="stylesheet" href="/styles.css">
+        <script type="module" src="/js/status.js"></script>
+    </head>
+    <body>
+        <header class="topbar">
+            <span class="brand">Service status</span>
+        </header>
+        <main>
+            <div id="banner" class="banner" hidden></div>
+            <ul id="monitors" class="monitors"></ul>
+            <h2>Incidents</h2>
+            <ul id="incidents" class="incidents"></ul>
+            <p id="incidents-empty" class="muted" hidden>No incidents recorded.</p>
+        </main>
+    </body>
+</html>
