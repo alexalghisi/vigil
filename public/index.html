@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Vigil</title>
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+        <link rel="stylesheet" href="/styles.css">
+        <script type="module" src="/js/app.js"></script>
+    </head>
+    <body>
+        <header class="topbar">
+            <a class="brand" href="/">Vigil</a>
+            <nav id="account" class="account" hidden>
+                <a id="status-link" class="link" href="/">Public status page</a>
+                <span id="account-email" class="account__email muted"></span>
+                <button id="sign-out" class="button button--ghost" type="button">Sign out</button>
+            </nav>
+        </header>
+
+        <main>
+            <section id="auth" class="auth" hidden>
+                <h1>Know when it breaks, before your users tell you.</h1>
+                <form id="auth-form" class="card form" novalidate>
+                    <label class="field">
+                        <span>Email</span>
+                        <input name="email" type="email" autocomplete="email" required>
+                    </label>
+                    <label class="field">
+                        <span>Password</span>
+                        <input name="password" type="password" autocomplete="current-password" minlength="10" required>
+                        <small class="muted">At least 10 characters.</small>
+                    </label>
+                    <p id="auth-error" class="error" role="alert" hidden></p>
+                    <div class="form__actions">
+                        <button class="button" type="submit" value="login">Sign in</button>
+                        <button class="button button--ghost" type="submit" value="register">Create account</button>
+                    </div>
+                </form>
+            </section>
+
+            <section id="dashboard" hidden>
+                <div class="summary" id="summary"></div>
+
+                <form id="monitor-form" class="card form form--inline" novalidate>
+                    <label class="field">
+                        <span>Name</span>
+                        <input name="name" maxlength="80" placeholder="Website" required>
+                    </label>
+                    <label class="field field--grow">
+                        <span>URL</span>
+                        <input name="url" type="url" placeholder="https://example.com/health" required>
+                    </label>
+                    <label class="field">
+                        <span>Every</span>
+                        <select name="intervalSeconds">
+                            <option value="30">30 seconds</option>
+                            <option value="60" selected>1 minute</option>
+                            <option value="300">5 minutes</option>
+                            <option value="900">15 minutes</option>
+                        </select>
+                    </label>
+                    <button class="button" type="submit">Add monitor</button>
+                    <p id="monitor-error" class="error" role="alert" hidden></p>
+                </form>
+
+                <h2>Monitors</h2>
+                <ul id="monitors" class="monitors"></ul>
+                <p id="monitors-empty" class="muted" hidden>No monitors yet. Add the first one above.</p>
+
+                <h2>Incidents</h2>
+                <ul id="incidents" class="incidents"></ul>
+                <p id="incidents-empty" class="muted" hidden>No incidents recorded.</p>
+            </section>
+        </main>
+    </body>
+</html>
